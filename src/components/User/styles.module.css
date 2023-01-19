@@ -1,0 +1,36 @@
+.container{
+    margin-left: calc((100vw - 1000px) / 2);
+    max-width: 1000px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.avatar img{
+width: 150 px;
+height: 150px;
+border-radius: 10px;
+
+}
+.avatar{
+    margin-right: 2rem;
+}
+.block{
+    margin: 5rem;
+    display: flex;
+    justify-content: flex-start;
+}
+span{
+    font-size: 20px;
+    font-weight: 600; 
+}
+.container button{
+width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #f3ae0c;
+    cursor: pointer;
+}
+.container button:hover{
+    box-shadow: 5px 5px 10px rgb(55, 55, 58) ;
+}

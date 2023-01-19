@@ -1,0 +1,27 @@
+.footer{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    background-color: #f3ae0c;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.icons{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    
+}
+.menu_left ul{
+    list-style-type: none;
+
+}
+
+.menu_right ul{
+    list-style-type: none;
+
+}

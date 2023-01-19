@@ -1,0 +1,17 @@
+.block img{
+    height: 300px;
+    width: 300px;
+    border-radius: 15px;
+    }
+.container{
+    margin-left: calc((100vw - 1000px) / 2);
+    max-width: 1000px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+}
+.container__cart{
+    margin-top: 2rem;
+    display: flex;
+    gap: 3rem;
+}
