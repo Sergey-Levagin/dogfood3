@@ -13,6 +13,9 @@ import { Signup } from './components/Signup/Signup'
 import { Cart } from './components/Cart/Cart'
 import { Product } from './components/Product/Product'
 import { store } from './redux'
+import { Favourite } from './components/Favourite/Favourite'
+import { AddNewProduct } from './components/AddNewProduct/AddNewProduct'
+import { EditProduct } from './components/EditProduct/EditProduct'
 
 const queryClient = new QueryClient()
 
@@ -43,6 +46,18 @@ const router = createBrowserRouter([
     {
       path: 'product_id::id',
       element: <Product />,
+    },
+    {
+      path: 'favourite',
+      element: <Favourite />,
+    },
+    {
+      path: 'addNewProduct',
+      element: <AddNewProduct />,
+    },
+    {
+      path: 'edit_product_id::id',
+      element: <EditProduct />,
     },
     ],
   },

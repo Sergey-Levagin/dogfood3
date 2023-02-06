@@ -11,8 +11,6 @@ function App() {
   useEffect(() => {
     if (!token) {
       navigate('/signin')
-    } else {
-      navigate('products')
     }
   }, [])
   return (

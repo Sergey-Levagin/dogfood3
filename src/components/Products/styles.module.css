@@ -9,5 +9,49 @@
 }
 .h1{
     margin-left: calc((100vw - 1000px) / 2);
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
+}
+.block__filter{
+    margin-left: calc((100vw - 945px) / 2);
+    width: 900px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 7px rgb(195, 195, 203), -5px 0px 7px rgb(195, 195, 203) ;
+    padding-top: 5px;
+    padding-bottom: 6px;
+   
+}
+.block__filter button:hover{
+    background-color: #f2c14e;
+    border-radius: 5px;
+    border: none;
+    font-size: medium;
+    padding: 3px 10px 3px 10px;
+    box-shadow: 5px 5px 7px rgb(55, 55, 58);
+    cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.block__filter_button_on{
+    background-color:#f2c14e;
+    border-radius: 5px;
+    border: none;
+    font-size: medium;
+    padding: 3px 10px 3px 10px;
+    box-shadow: 2px 2px 3px rgb(55, 55, 58);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.block__filter_button_off{
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: medium;
+    padding: 3px 10px 3px 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }

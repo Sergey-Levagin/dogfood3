@@ -15,17 +15,23 @@ import stylesHeader from './styles.module.css'
 import { addValueSearch } from '../../redux/slice/searchSlice/searchSlice'
 import { getCartSelector } from '../../redux/slice/cartSlice.js/cartSlice'
 import { useDebounce } from '../../custom/useDebounce'
+import { clearValueSort } from '../../redux/slice/sortProductSlice/sortProductSlice'
+import { getListFavouriteProducts } from '../../redux/slice/favouriteSlice/favouriteSlice'
 
 export function Header() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const cart = useSelector(getCartSelector)
+  const favourite = useSelector(getListFavouriteProducts)
   const [searchParams, setSearchParams] = useSearchParams()
   const [input, setInput] = useState(() => searchParams.get('q') ?? '')
   const debounceValue = useDebounce(input, 500)
 
   useEffect(() => {
-    setSearchParams({ q: input })
+    setSearchParams({
+      ...Object.fromEntries(searchParams.entries()),
+      q: input,
+    })
   }, [input])
 
   useEffect(() => {
@@ -39,6 +45,7 @@ export function Header() {
   }
   const clear = () => {
     setInput('')
+    dispatch(clearValueSort())
   }
 
   return (
@@ -62,11 +69,14 @@ export function Header() {
       <div className={stylesHeader.header__end}>
         <ul>
           <li>
-            <Link to="/"><Favourite /></Link>
+            <Link to="/favourite">
+              {favourite?.length ? <p className={stylesHeader.end_favourite_count}>{favourite.length}</p> : ''}
+              <Favourite />
+            </Link>
           </li>
           <li className={stylesHeader.header__end_cart}>
             <Link to="/cart">
-              {cart?.length ? <p>{cart.length}</p> : ''}
+              {cart?.length ? <p className={stylesHeader.end_cart_count}>{cart.length}</p> : ''}
               <Cart />
             </Link>
           </li>

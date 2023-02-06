@@ -81,12 +81,25 @@
     justify-content: center;
     list-style-type: none;
 }
-.header__end p{
+.end_cart_count{
     width: 25px;
     height: 20px;
     position: absolute;
     top: 0px;
     right: 1px;
+    font-size: 15px;
+    color: rgb(248, 247, 247);
+    background-color: #e6440d;
+    border-radius: 45%;
+    text-align: center;
+    margin: 0;
+}
+.end_favourite_count{
+    width: 25px;
+    height: 20px;
+    position: absolute;
+    top: 1px;
+    right: 42px;
     font-size: 15px;
     color: rgb(248, 247, 247);
     background-color: #e6440d;

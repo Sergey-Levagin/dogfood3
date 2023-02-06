@@ -7,6 +7,7 @@ import { useApi } from '../../custom/useApi'
 import stylesUser from './styles.module.css'
 import { clearToken, getTokenSelector } from '../../redux/slice/tokenSlice/tokenSlice'
 import { deleteAllProductsFromCart } from '../../redux/slice/cartSlice.js/cartSlice'
+import { clearListFavourite } from '../../redux/slice/favouriteSlice/favouriteSlice'
 
 export function User() {
   const { dataUser } = useApi()
@@ -24,6 +25,7 @@ export function User() {
   function submit() {
     dispatch(deleteAllProductsFromCart())
     dispatch(clearToken())
+    dispatch(clearListFavourite())
     localStorage.clear()
     navigate('/signin')
   }
@@ -33,6 +35,7 @@ export function User() {
   } = useQuery({
     queryKey: ['repoData'],
     queryFn: () => dataUser(),
+    enabled: !!token,
   })
 
   if (isLoading) return 'Loading...'
@@ -42,15 +45,13 @@ export function User() {
     <div className={stylesUser.container}>
       <div><h2>Личный кабинет</h2></div>
       <div className={stylesUser.block}>
-        <div className={stylesUser.avatar}><img src={user.avatar} alt="" /></div>
-        <div>
+        <div className={stylesUser.avatar}>
+          <img src={user.avatar} alt="" />
+        </div>
+        <div className={stylesUser.block_text}>
+          <h3>{ user.name}</h3>
           <p>
-            Фамилия Имя :
-            {' '}
-            <span>{ user.name}</span>
-          </p>
-          <p>
-            Тип :
+            статус:
             {' '}
             <span>{user.about}</span>
           </p>
@@ -64,9 +65,11 @@ export function User() {
             {' '}
             <span>{user.email}</span>
           </p>
-          <button type="button" onClick={() => submit()}>Выйти</button>
         </div>
-
+      </div>
+      <div className={stylesUser.container_block__button}>
+        <button type="button" onClick={() => navigate('/addNewProduct')}>Добавить товар</button>
+        <button type="button" onClick={() => submit()}>Выйти</button>
       </div>
     </div>
   )

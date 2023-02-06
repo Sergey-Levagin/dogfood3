@@ -1,0 +1,170 @@
+.container{
+    margin-left: calc((100vw - 1350px) / 2);
+    max-width: 700px;
+    margin-top: 5px;
+    margin-bottom: 2rem;
+
+}
+.container__block{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.header__avatar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+}
+.header__avatar img{
+    width: 48px;
+    height: 48px;
+}
+.container__header{
+    display: flex;
+    justify-content: space-between;
+}
+.header__rating{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.header__rating__on svg{
+    height: 15px;
+    fill: rgb(242, 118, 9);
+    margin-right: 3px;
+}
+.header__rating__off svg{
+    height: 15px;
+    fill: rgb(118, 113, 113);
+    margin-right: 3px;
+}
+.container__text{
+    margin-left: calc(48px + 16px) ;
+    width: 600px;
+}
+.container__form__text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: calc(48px + 16px) ;
+}
+.container__form__text textarea{
+    width: 400px;
+    height: 70px;
+    border-radius: 5px;
+    border: 0.5px solid rgb(118, 113, 113);
+    margin-bottom: 5px;
+    font-size: large;
+    
+}
+.container__form__text button{
+        width: 100px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #f3ae0c;
+        cursor: pointer;
+        margin-top: 10px;
+}
+.container__form__text button:hover{
+        box-shadow: 3px 3px 5px rgb(55, 55, 58) ;
+}
+.container_hr{
+
+    margin-top: 3rem;
+}
+.container__block__button_del button{
+    border: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    color: #8a8484;
+}
+.container__block__button_del svg{
+    height: 15px;
+    width: 15px;
+    fill: #8a8484;
+}
+.container__block__button_del svg:hover{
+    fill: rgb(212, 35, 35);
+}
+.container__block__button_del{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1rem;
+}
+.header__rating__date{
+    margin-right: 1rem;
+}
+.reviews_count{
+    position: absolute;
+    top: -14px;
+    left: 161px;
+    color: grey;
+    font-size: small;
+}
+
+.reviews_count_text{
+    margin-left: 50px;
+    margin-top: 2rem;
+    text-align: center;
+    width: 600px;
+    font-size: large;
+    color: gray;
+}
+.block_rating_area{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0;
+}
+.block_rating_area p{
+    margin-top: 2px;
+}
+
+.form__errors_text{
+    color: red;
+    
+}
+.rating_area {
+	overflow: hidden;
+	width: 170px;
+	height: 30px;
+
+}
+.rating_area:not(:checked) > input {
+	display: none;
+}
+.rating_area:not(:checked) > label {
+	float: right;
+	width: 32px;
+	padding: 0;
+	cursor: pointer;
+	font-size: 22px;
+	line-height: 20px;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+    text-align: center;
+}
+.rating_area:not(:checked) > label:before {
+	content: '★';
+}
+.rating_area > input:checked ~ label {
+	color: rgb(242, 118, 9);
+	text-shadow: 1px 1px rgb(242, 118, 9);
+}
+.rating_area:not(:checked) > label:hover,
+.rating_area:not(:checked) > label:hover ~ label {
+	color: rgb(242, 118, 9);
+}
+.rating_area > input:checked + label:hover,
+.rating_area > input:checked + label:hover ~ label,
+.rating_area > input:checked ~ label:hover,
+.rating_area > input:checked ~ label:hover ~ label,
+.rating_area > label:hover ~ input:checked ~ label {
+	color: rgb(242, 118, 9);
+	text-shadow: 1px 1px rgb(242, 118, 9);
+}
+.rate_area > label:active {
+	position: relative;
+}

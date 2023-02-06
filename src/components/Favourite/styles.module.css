@@ -1,0 +1,14 @@
+.container{
+    display: grid;
+    margin-left: calc((100vw - 1000px) / 2);
+    max-width: 1000px;
+    grid-template-columns:repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    margin-bottom: 2rem;
+}
+.heading{
+    margin-left: calc((100vw - 1000px) / 2);
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+}

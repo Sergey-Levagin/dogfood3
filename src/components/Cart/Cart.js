@@ -31,13 +31,14 @@ export function Cart() {
       navigate('/signin')
     }
   }, [])
+
   const {
     addCountProdutInCart, addCheckboxProdutInCart,
     decrementProductInCart, incrementProductInCart,
     priceCalculation, defaultValueCheckboxForAllProducts,
     changeValueCheckboxForAllProducts, calculationCostProduct,
     calculationCostCart, maxQuantityAvailableProduct, discountProductsInCart,
-    discountAllProductsInCart,
+    discountAllProductsInCart, getCountAllProductsInCartByCheckboxTrue,
   } = useCalculationCart()
 
   function tegDiscount(discount) {
@@ -137,7 +138,7 @@ export function Cart() {
                         {' '}
                         P
                       </h4>
-                      <del>{discountProductsInCart(prod._id, prod.price, prod.discount)}</del>
+                      <del style={{ color: 'grey' }}>{discountProductsInCart(prod._id, prod.price, prod.discount)}</del>
                     </div>
                   </div>
                 )))}
@@ -148,6 +149,10 @@ export function Cart() {
               <div><h4>Итого</h4></div>
               <hr />
               <div className={styles.cart__block}>
+                <div className={styles.cart__block_discount}>
+                  <span>Товаров</span>
+                  <span>{getCountAllProductsInCartByCheckboxTrue()}</span>
+                </div>
                 <div className={styles.cart__block_discount}>
                   <span>
                     Скидка

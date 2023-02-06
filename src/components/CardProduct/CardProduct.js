@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/destructuring-assignment */
@@ -7,12 +9,16 @@ import { useNavigate } from 'react-router-dom'
 import { useCalculationCart } from '../../custom/useCalculationCart'
 import { addProductInCart, getCartSelector } from '../../redux/slice/cartSlice.js/cartSlice'
 import styles from './styles.module.css'
+import { ReactComponent as Favourite } from './heart-solid.svg'
+import { addProductInFavourite, getListFavouriteProducts } from '../../redux/slice/favouriteSlice/favouriteSlice'
 
-export function CartProduct({ product }) {
+export function CardProduct({ product }) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const cart = useSelector(getCartSelector)
+  const favourite = useSelector(getListFavouriteProducts)
   const { priceCalculation } = useCalculationCart()
+
   function addProductToCart(id) {
     dispatch(addProductInCart(id))
   }
@@ -42,15 +48,33 @@ export function CartProduct({ product }) {
       return <p className={styles.block_discount}>{`-${discount}%`}</p>
     } return ' '
   }
+  function checkProductInFavourite(id) {
+    return favourite.includes(id)
+  }
+  const renderDefaultImage = ({ currentTarget }) => {
+    currentTarget.onerror = null
+    currentTarget.src = 'https://react-learning.ru/image-compressed/default-image.jpg'
+  }
+
   return (
     <div
       className={styles.block}
     >
       <div className={styles.block_img}>
         {tegDiscount(product.discount)}
+        <span
+          onClick={() => dispatch(addProductInFavourite(product._id))}
+          className={styles.block_img__favourite}
+        >
+          <Favourite className={checkProductInFavourite(product._id)
+            ? styles.block_img__favourite_on : styles.block_img__favourite_off}
+          />
+
+        </span>
         <img
           src={product.pictures}
-          alt="описание"
+          alt={product.name}
+          onError={renderDefaultImage}
         />
       </div>
       <div className={styles.block__name_product}>

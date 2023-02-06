@@ -8,13 +8,38 @@
     display: flex;
     flex-direction: column;
 }
-.button{
-    margin-top: 1rem;
+
+.form input{
+    width: 300px;
+    height: 25px;
     border-radius: 5px;
-    border: 1px solid rgb(4, 4, 4);
+    border: 1px solid #f3ae0c;
+    margin: 10px;
+    font-size: large;
 }
-.link{
+form label{
+    font-size: large;
+}
+.form_button{
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #f3ae0c;
+    cursor: pointer;
+    height: 30px;
+    font-size: large;
+}
+.form_button:hover{
+    box-shadow: 5px 5px 10px rgb(55, 55, 58) ;
+}
+.form__errors_text{
+    color: red;
+    font-size: small;
+    text-align: center;
+    margin-top: 0px;
+}
+.form_link{
     margin-top: 1rem;
-    display: flex;
-    justify-content: center;
+ text-align: center;
 }

@@ -144,3 +144,6 @@ img{
     margin: 0;
 
 }
+.block__cost h4{
+    margin-bottom: 2px;
+}

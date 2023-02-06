@@ -1,0 +1,6 @@
+.container{
+    margin-left: calc((100vw - 1000px) / 2);
+    max-width: 700px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}

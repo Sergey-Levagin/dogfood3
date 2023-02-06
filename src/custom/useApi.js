@@ -157,6 +157,135 @@ export const useApi = () => {
     }
   }
 
+  async function getFeedbackProductById(id) {
+    const response = await fetch(`https://api.react-learning.ru/products/review/${id}`, {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    })
+    const res = await response.json()
+    try {
+      if (response.status === 200) {
+        return res
+      }
+      throw new SyntaxError(res.message)
+    } catch (error) {
+      alert(error)
+      return null
+    }
+  }
+  async function addFeedbackProductById(values) {
+    const { id, ...value } = values
+
+    const response = await fetch(`https://api.react-learning.ru/products/review/${id}`, {
+      method: 'POST',
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(value),
+    })
+
+    const res = await response.json()
+    try {
+      if (response.status === 200) {
+        return res
+      }
+      throw new SyntaxError(res.message)
+    } catch (error) {
+      alert(error)
+      return null
+    }
+  }
+
+  async function addNewProduct({ id, ...value }) {
+    const response = await fetch('https://api.react-learning.ru/products', {
+      method: 'POST',
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(value),
+    })
+
+    const res = await response.json()
+    try {
+      if (response.status === 201) {
+        alert('Товар добавлен')
+        navigate('/products')
+        return res
+      }
+      throw new SyntaxError(res.message)
+    } catch (error) {
+      alert(error)
+      return null
+    }
+  }
+
+  async function deleteReviewByIdProduct({ idReview, productId }) {
+    const response = await fetch(`https://api.react-learning.ru/products/review/${productId}/${idReview}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    })
+    const res = await response.json()
+    try {
+      if (response.status === 200) {
+        alert('Отзыв удален')
+        return res
+      }
+      throw new SyntaxError(res.message)
+    } catch (error) {
+      alert(error)
+      return res
+    }
+  }
+
+  async function editProductByIdProduct(values) {
+    const { id: idProduct, ...value } = values
+    const response = await fetch(`https://api.react-learning.ru/products/${idProduct}`, {
+      method: 'PATCH',
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(value),
+    })
+    const res = await response.json()
+    try {
+      if (response.status === 200) {
+        alert('Товар успешно отредактирован')
+        navigate(`/product_id:${idProduct}`)
+        return res
+      }
+      throw new SyntaxError(res.message)
+    } catch (error) {
+      alert(error)
+      return res
+    }
+  }
+
+  async function deleteProductById(id) {
+    const response = await fetch(`https://api.react-learning.ru/products/${id}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    })
+    const res = await response.json()
+    try {
+      if (response.status === 200) {
+        alert('Товар удален')
+        navigate('/products')
+        return res
+      }
+      throw new SyntaxError(res.message)
+    } catch (error) {
+      alert(error)
+      return res
+    }
+  }
   return {
     signUp,
     signIn,
@@ -165,5 +294,11 @@ export const useApi = () => {
     getDataProduct,
     getProductsById,
     searchProducts,
+    getFeedbackProductById,
+    addFeedbackProductById,
+    addNewProduct,
+    deleteReviewByIdProduct,
+    editProductByIdProduct,
+    deleteProductById,
   }
 }

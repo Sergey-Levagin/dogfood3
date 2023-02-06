@@ -90,6 +90,15 @@ export const useCalculationCart = () => {
     })
     return Math.trunc(cost - discountedPrice)
   }
+  function getCountAllProductsInCartByCheckboxTrue() {
+    const listProductsByCheckboxTrue = cart.filter((prod) => prod.checkbox === true)
+    let countProducts = 0
+    listProductsByCheckboxTrue.map((product) => {
+      countProducts += product.count
+      return product.count
+    })
+    return countProducts
+  }
   return {
     addCountProdutInCart,
     addCheckboxProdutInCart,
@@ -103,5 +112,6 @@ export const useCalculationCart = () => {
     maxQuantityAvailableProduct,
     discountProductsInCart,
     discountAllProductsInCart,
+    getCountAllProductsInCartByCheckboxTrue,
   }
 }

@@ -98,3 +98,22 @@
     font-size: smaller;
 
 }
+.block_img__favourite{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    
+}
+.block_img__favourite_off{
+    width: 22px;
+    height: 20px;
+    fill: white;
+    stroke: rgb(4, 4, 4);
+    stroke-width: 20;
+}
+.block_img__favourite_on{
+    width: 22px;
+    height: 20px;
+    fill: rgb(212, 35, 35);
+}
